@@ -1,0 +1,75 @@
+<div ng-init="init()">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="text-center"> Music Track</h4>
+        </div>
+        <div class="panel-body">
+            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
+                    <input type="text" data-ng-model="search" class="form-control" placeholder="Search" ng-change="searchTrack(search)"/>
+                </div>
+                <button class="btn btn-success pull-right" data-toggle="modal" data-target="#track">
+                    Add New Track
+                </button>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <ul class="list-group list">
+                    <li class="list-group-item " ng-repeat="music in MusicTrack.music">
+                        <div class="row">
+
+                            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12"><span ng-bind="music.title"> </span>
+
+                                <span ng-repeat="genres in music.genres">  
+                                    [ <span ng-bind="genres.name"></span> ]
+                                </span>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 pull-right">
+                                <span class="pull-right" ng-bind="music.rating"> </span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="track" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Music Track</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-12  col-md-12 col-xs-12 col-sm-12">
+                            <label>Music:</label>
+                        </div>
+                        <div class="col-lg-12  col-md-12 col-xs-12 col-sm-12">
+                            <input type="text" class="form-control"/>
+                        </div>
+                        <div class="col-lg-12  col-md-12 col-xs-12 col-sm-12">
+                            <label>Genres:</label>
+                        </div>
+                        <div class="col-lg-12  col-md-12 col-xs-12 col-sm-12">
+                            <multiselect class="input-xlarge" multiple="true"
+                                         ng-model="selectedCar"
+                                         options="c.name for c in cars"
+                                         change="selected()" ></multiselect>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
