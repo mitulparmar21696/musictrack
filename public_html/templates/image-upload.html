@@ -1,0 +1,27 @@
+<div class="panel panel-default">   
+    <div class="panel-body">
+        
+<div class="row">
+            <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12" data-ng-class="{'has-error': companyform.$submitted && companyform.logo.$invalid,'has-feedback': companyform.$submitted && companyform.logo.$valid}">
+                <label class="control-label">
+                    Company Logo
+                </label>
+                <div class="has-feedback">
+                    <!--This is to show existing logo-->
+                    <!--This is to allow user to uplaod new logo companyModifyData.isReload-->
+                    <div>
+                        <div class="fileContainer" >
+                            <img data-ng-hide="companyModifyData.newLogo" data-ng-src="{{companyModifyData.companyLogo}}" onerror= "this.src = 'images/user.png';" class="thumbnail_large" />
+                            <img data-ng-show="companyModifyData.newLogo" ngf-thumbnail="companyModifyData.newLogo" class="thumbnail_large">
+                            <input type="file" ngf-select ng-model="companyModifyData.newLogo" name="logo" accept="images/*" ngf-max-size="2MB" ngf-model-invalid="errorFiles">
+                            <i ng-show="companyform.logo.$error.maxSize">
+                                File too large
+                                {{errorFiles[0].size / 1000000|number:1}}MB: max 2M
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </div>     
+  </div>     
